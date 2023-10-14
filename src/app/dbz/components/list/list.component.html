@@ -1,0 +1,34 @@
+<ul class="list-group">
+  <li *ngFor="let character of characterList;
+      let i = index;
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even;
+      let isOdd = odd;
+    "
+    class="list-group-item d-flex justify-content-between aling-items-center"
+    [ngClass]="{
+      'list-group-item-success': isLast,
+      'list-group-item-warning': isFirst,
+      }">
+
+    <div>
+      <span class="text-primary"> {{i + 1}}. </span>
+
+      {{character.name}} - Power: {{character.power}}
+
+    </div>
+
+  <!--
+    <span>Es el primero: {{isFirst}}</span>
+    <span> Es el ultimo: {{isLast}}</span>
+    <span> Es par: {{isEven}}</span>
+    <span> Es impan: {{isOdd}}</span> -->
+    <!-- <form action="row" (ngSubmit)="emitOnDeleteCharacter(i)"> -->
+      <button
+        class="btn btn-danger" (click)="emitOnDeleteCharacter(character.id)"
+        > X </button>
+
+    <!-- </form> -->
+    </li>
+</ul>
